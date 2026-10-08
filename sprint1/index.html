@@ -18,7 +18,6 @@
     <p class="miguetes"><a href="../index.html">Portada</a> / <a href="../sprints.html">Índex de sprints</a> / Sprint 1</p>
     <h1>Pining Packet</h1>
     
-      <h2>1. Instal·lació del sistema operatiu</h2>
       <p> En executar la comanda apt-cache policy curl, comprovem quina versió del paquet curl està marcada com a candidata per instal·lar:   
 Versió candidata inicial: 8.18.0-1ubuntu2.7 (prioritat 500)   
 Versió anterior disponible: 8.18.0-1ubuntu2 (prioritat 500)
@@ -26,21 +25,21 @@ Com que totes dues opcions tenen la mateixa prioritat per defecte (500), el gest
       </p>
       <ul>
       <img src=".//2026-10-08_13-19.png" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
-<h2>1. Instal·lació del sistema operatiu</h2>
-      <p> En executar la comanda apt-cache policy curl, comprovem quina versió del paquet curl està marcada com a candidata per instal·lar:   
-Versió candidata inicial: 8.18.0-1ubuntu2.7 (prioritat 500)   
-Versió anterior disponible: 8.18.0-1ubuntu2 (prioritat 500)
-Com que totes dues opcions tenen la mateixa prioritat per defecte (500), el gestor de paquets selecciona com a candidata la versió més recent (8.18.0-1ubuntu2.7)
+      <p>   
+Per tal de forçar el sistema a utilitzar una versió específica en lloc de la més recent, es crea o modifica un fitxer de preferències a /etc/apt/preferences.d/curl-pin utilitzant un editor de text com nano
       </p>
       <ul>
-      <img src="2026-10-08_13-19.png" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
-        <h2>1. Instal·lació del sistema operatiu</h2>
+      <img src="../2026-10-08_13-20.png" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
       <p>
-        
+En tornar a executar la comanda apt-cache policy curl, es comprova que la configuració s'ha aplicat correctament:
+Nova versió candidata: 8.18.0-1ubuntu2
+Prioritat assignada: La versió 8.18.0-1ubuntu2 ha passat a tenir una prioritat de 1001.
       </p>
       <ul>
-      <img src="2026-10-08_13-19.png" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
-        
+      <img src="../2026-10-08_13-20_1.png" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
+       <p>
+Conclusió: Inicialment la versió prioritària (candidata) era la 8.18.0-1ubuntu2.7, però mitjançant les regles de pinning d'APT hem definit que la versió 8.18.0-1ubuntu2 passe a tenir la prioritat màxima (1001), convertint-se així en la nova versió candidata per a la instal·lació.
+       <p>
 <footer class="peu">
   <p class="peu-llicencia">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">
